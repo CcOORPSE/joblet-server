@@ -394,8 +394,6 @@ export const handleChatSession = async (req, res) => {
           }
         });
       }
-    }
-    }
 
     const sessionId = await persistChatTurn(userId, incomingSessionId, message.trim(), responseText);
 
