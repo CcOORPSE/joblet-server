@@ -214,8 +214,8 @@ app.get('/api/admin/metrics', protectRoute("admin"), async (req, res) => {
 
 Sentry.setupExpressErrorHandler(app);
 
-// Start the server locally only — Vercel exports the app as a handler
-if (process.env.NODE_ENV !== "production" && !process.env.VERCEL) {
+// Start the server when not running as a Vercel serverless handler
+if (!process.env.VERCEL) {
   const port = process.env.PORT || 3000;
   app.listen(port, () => console.log(`Server running on port ${port}`));
 }
